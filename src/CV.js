@@ -249,7 +249,7 @@ const CV = () => {
         <div className="nom">
           <b style={{ fontSize: `1.5em`, fontVariant: 'small-caps' }}>Thomas Carli</b>
           <br></br>
-          <A style={{ fontSize: `0.8em` }} txt='06 77 80 25 71' />
+          <A style={{ fontSize: `0.8em` }} txt='+33 6 77 80 25 71' />
           <br></br>
           thomas.carli@gmail.com
               <br></br>

@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "a320-ecam-gauges": "github:licarth/a320-ecam-gauges",
+    "lodash": "^4.17.5",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-scripts": "1.1.1"

@@ -8,6 +8,7 @@ import cc from './cc.svg'
 import cloud from './cloud.svg'
 import uk from './uk.svg'
 import Gauge from 'a320-ecam-gauges'
+import _ from 'lodash';
 
 const A = (props) => {
   return <span className="a320" style={props.style}>{props.txt}</span>;
@@ -75,29 +76,57 @@ const Aero = () => {
   </div>
 }
 
+const XpItem = ({ yearStart, yearEnd, title, company, location, items }) => {
+  return <div className="xpItem">
+    <div>
+      <b>
+        <span class="a320">{yearStart} {yearEnd ? "> ": ""}{yearEnd}</span> - {title} - {company}, {location}</b>
+      <ul>
+        {_.map(items, i => <li>{i}</li>)}
+      </ul>
+    </div>
+  </div>
+
+}
+
 const ProfesionnalExperience = () => {
   return <div id="experience" class="section experience">
     <LogoLeft img={cloud} />
     <div className="titreSection">Software Engineering</div>
-    <div class="content">
-      <div>
-        <b>
-          <span class="a320">2014 > 2018</span> - Software Engineer - GoEuro GmbH, Berlin</b>
-        <ul>
-          <li>Site internet de comparaison et de réservation de billets d’avion, de train et de bus.</li>
-          <li>10 millions de visiteurs uniques par mois.</li>
-          <li>Équipe multidisciplinaire et internationale. Anglais exclusivement utilisé.</li>
-          <li>Développement et maintenance d'applications distribuées.</li>
-          <li>Traitement de données du transport aérien, ferroviaire et routier.</li>
-          <li>3 ans d’expérience comme interviewer technique en entretiens d’embauche.</li>
-        </ul>
-      </div>
-      <div>
-        <b>
-          <span class="a320">2012</span> - Développeur informatique stagiaire - Google, Madrid </b>
-      </div>
+    <div className="content">
+      <XpItem {...{
+        yearStart: 2014,
+        yearEnd: 2018,
+        title: "Software Engineer",
+        company: "GoEuro GmbH",
+        location: "Berlin",
+        items: [
+          "Site internet de comparaison et de réservation de billets d’avion, de train et de bus.",
+          "10 millions de visiteurs uniques par mois.",
+          "Équipe multidisciplinaire et internationale. Anglais exclusivement utilisé.",
+          "Développement et maintenance d'applications distribuées.",
+          "Traitement de données du transport aérien, ferroviaire et routier.",
+          "3 ans d’expérience comme interviewer technique en entretiens d’embauche."
+        ]
+      }} />
+      <XpItem {...{
+        yearStart: 2012,
+        title: "Intern Software Engineer",
+        company: "Google",
+        location: "Madrid",
+        items: [
+        ]
+      }} />
+      <XpItem {...{
+        yearStart: 2012,
+        title: "Intern Software Engineer",
+        company: "Squadmail",
+        location: "Berlin",
+        items: [
+        ]
+      }} />
     </div>
-  </div>
+  </div >
 }
 
 const Education = () => {
@@ -200,14 +229,14 @@ const Credits = () => {
         <b>Logos</b>
       </div>
       <div>
-          Creative commons from the Noun Project by :
+        Creative commons from the Noun Project by :
          <ul>
-            <li>Austin Condiff</li>
-            <li>Simon Sim</li>
-            <li>Sergey Kashin</li>
-            <li>Dinosoft Labs</li>
-            <li>Mulham</li>
-          </ul>
+          <li>Austin Condiff</li>
+          <li>Simon Sim</li>
+          <li>Sergey Kashin</li>
+          <li>Dinosoft Labs</li>
+          <li>Mulham</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -224,7 +253,7 @@ const CV = () => {
           <br></br>
           thomas.carli@gmail.com
               <br></br>
-          <A style={{ fontSize: `0.8em` }} txt='28' /> ans
+          <A style={{ fontSize: `0.8em` }} txt='28' /> y/o
               <br></br>
         </div>
 
@@ -251,7 +280,7 @@ const CV = () => {
         <div className="footer"></div>
         <div className="footerRight">
           <p>
-            The source of this page is <a href="http://google.com">available on Github.</a>
+            The source of this page is <a href="https://github.com/licarth/cv-dev/">available on Github.</a>
           </p>
         </div>
       </div>

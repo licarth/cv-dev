@@ -8,11 +8,13 @@
         color: white;
         margin-left: auto;
         margin-right: auto;
+        margin-top: 1cm;
+        margin-bottom: 1cm;
     }
 
     .content-grid {
         grid-template-columns: 2cm 1fr;
-        grid-template-rows: 3cm 7cm auto 2cm;
+        grid-template-rows: auto auto auto 2cm;
     }
 
     .topright {
@@ -28,7 +30,7 @@
     
     .content-grid {
         grid-template-columns: var(--leftcol-width) 1fr;
-        grid-template-rows: 1cm 7cm auto 2cm;
+        grid-template-rows: 1cm auto auto 2cm;
     }
     .nom {
         z-index: 2;

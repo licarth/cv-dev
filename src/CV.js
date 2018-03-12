@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './CV.css';
 import airbusImage from './pfd.png'
 import planeur from './planeur.svg'
+import tools from './tools.svg'
 import education from './education.svg'
 import sports from './sports.svg'
 import cc from './cc.svg'
@@ -9,21 +10,20 @@ import cloud from './cloud.svg'
 import uk from './uk.svg'
 import Gauge from 'a320-ecam-gauges'
 import _ from 'lodash';
+import { ReactLogo, NodejsLogo } from './techLogos'
 
 const A = (props) => {
   return <span className="a320" style={props.style}>{props.txt}</span>;
 }
 
 const LogoLeft = ({ img, size }) => {
-  return <div className="logoleft">
-    <div
-      style={{
-        width: '100%',
-        height: '100%',
-        zIndex: 2,
-        position: 'absolute'
-      }}>
-      <svg style={{ zIndex: 2 }} viewBox="0 0 200 200">
+  return <RoundLogo img={img} size={size} className={"logoleft"} />
+}
+
+const RoundLogo = ({ img, size, className }) => {
+  return <div className={className + " roundLogo"}>
+    <div>
+      <svg viewBox="0 0 200 200">
         <defs>
           <filter id="f1" x="-20%" y="-20%" width="200%" height="200%">            <feOffset result="offOut" in="SourceAlpha" dx="2" dy="2" />
             <feGaussianBlur result="blurOut" in="offOut" stdDeviation="1" />
@@ -40,7 +40,6 @@ const LogoLeft = ({ img, size }) => {
       style={{
         width: '100%',
         height: '100%',
-        zIndex: 3,
         display: 'grid',
         position: 'absolute'
       }}>
@@ -76,16 +75,33 @@ const Aero = () => {
   </div>
 }
 
-const XpItem = ({ yearStart, yearEnd, title, company, location, items }) => {
+const techLogos = {
+  node: <NodejsLogo />,
+  react: <ReactLogo />
+}
+
+const XpItem = ({ yearStart, yearEnd, title, company, location, items, technologies }) => {
   return <div className="xpItem">
-    <div>
+    <div className="xpSection xpTitle">
       <b>
-        <span class="a320">{yearStart} {yearEnd ? "> ": ""}{yearEnd}</span> - {title} - {company}, {location}</b>
-      <ul>
-        {_.map(items, i => <li>{i}</li>)}
-      </ul>
+        <span class="a320">{yearStart} {yearEnd ? "> " : ""}{yearEnd}</span> - {title} - {company}, {location}</b>
     </div>
-  </div>
+    {!_.isEmpty(items) ?
+      <div className="xpSection xpContent">
+        <ul>
+          {_.map(items, i => <li>{i}</li>)}
+        </ul>
+      </div>
+      : ""}
+    {!_.isEmpty(technologies) ?
+      <div className="xpSection xpTechnologies">
+        <RoundLogo img={tools} size={"60%"} className="techToolsLogo" />
+        <div className="techLogos">
+          {_.map(technologies, t => techLogos[t])}
+        </div>
+      </div>
+      : ""}
+  </div >
 
 }
 
@@ -101,12 +117,16 @@ const ProfesionnalExperience = () => {
         company: "GoEuro GmbH",
         location: "Berlin",
         items: [
-          "Site internet de comparaison et de réservation de billets d’avion, de train et de bus.",
-          "10 millions de visiteurs uniques par mois.",
-          "Équipe multidisciplinaire et internationale. Anglais exclusivement utilisé.",
+          "Travel search engine for bus, flight, and train tickets.",
+          "10 million unique visitors per month.",
+          "International dev team.",
           "Développement et maintenance d'applications distribuées.",
           "Traitement de données du transport aérien, ferroviaire et routier.",
           "3 ans d’expérience comme interviewer technique en entretiens d’embauche."
+        ],
+        technologies: [
+          "node",
+          "react",
         ]
       }} />
       <XpItem {...{
@@ -129,43 +149,39 @@ const ProfesionnalExperience = () => {
   </div >
 }
 
+const EducationItem = ({ yearEnd, desc }) => {
+  return [<div>
+    <b>
+      <span class="a320">{yearEnd}</span>
+    </b>
+  </div>,
+  <div>
+    {desc}
+  </div>
+  ]
+}
+
 const Education = () => {
   return <div id="education" class="section education">
     <LogoLeft img={education} />
     <div className="titreSection">Education</div>
     <div class="gridcontainer content" >
-      <div>
-        <b>
-          <span class="a320">2014</span>
-        </b>
-      </div>
-      <div>
-        Supélec, Gif-sur-Yvette. Master of Science in Engineering.
-            </div>
-      <div>
-        <b>
-          <span class="a320">2012</span>
-        </b>
-      </div>
-      <div>
-        Semestre d’échange avec l’ESCP Europe (Berlin)
-            </div>
-      <div>
-        <b>
-          <span class="a320">2010</span>
-        </b>
-      </div>
-      <div>
-        Lycée Sainte-Geneviève, Versailles. Classes préparatoires PCSI – PC*.
-            </div>
-      <div>
-        <b>
-          <span class="a320">2007</span>
-        </b>
-      </div>
-      <div>
-        Baccalauréat scientifique (mention Très Bien).
-            </div>
+      <EducationItem {...{
+        yearEnd: 2014,
+        desc: "Supélec, Gif-sur-Yvette. Master of Science in Engineering."
+      }} />
+      <EducationItem {...{
+        yearEnd: 2012,
+        desc: "Exchange semester with ESCP Berlin.",
+      }} />
+      <EducationItem {...{
+        yearEnd: 2010,
+        desc: "Lycée Sainte-Geneviève, Versailles. Classes préparatoires PCSI – PC*."
+      }} />
+      <EducationItem {...{
+        yearEnd: 2007,
+        desc: "Baccalauréat, with honors."
+      }} />
     </div>
   </div>
 }
@@ -175,18 +191,18 @@ const Languages = () => {
     <LogoLeft img={uk} />
     <div className="titreSection">Languages</div>
     <div class="gridcontainer content" style={{ gridTemplateColumns: `1fr 7fr 2fr` }}>
-      <div>Anglais</div>
+      <div>English</div>
       <div>
-        <span class="a320 b">C2</span> - 5 ans d’expérience professionnelle
+        <span class="a320 b">C2</span> - 5 years of profesionnal experience working in English
                 <br></br>
         <b>TOEIC</b> <span class="a320 b"> 990/990 </span> Listening and Reading - 28/02/2018
                 <br></br>
       </div>
       <div>
-        Espagnol
+        Spanish
                 <span class="a320 b"> B1</span>
         <br></br>
-        <br></br> Allemand
+        <br></br> German
                 <span class="a320 b"> A2</span>
       </div>
     </div>
@@ -199,23 +215,29 @@ const Other = () => {
     <div className="titreSection">Other Activities</div>
     <div class="gridcontainer content" style={{ gridTemplateColumns: `3cm 1fr` }}>
       <div>
-        <b>Associations</b>
+        <b>Societies</b>
       </div>
-      <div>Bureau des Sports de Supélec - Vice-Président - 2012
-                <ul>
-          <li>400 licenciés pratiquant 20 sports différents.</li>
-          <li>Tournoi universitaire annuel - 2000 sportifs venant d’universités françaises et étrangères.</li>
-        </ul>
+      <div>
+        Supélec Sports assiciation - Vice-President - 2012
+        <br></br>
+        Vice president of the “​ Bureau des Sports​ ” at Supélec, a committee of 12 students which is in
+          charge of a 400-member sports association that allow students of the school to practice 20
+          different sports and that organizes every year a sports tournament which attracts more than
+          2000​ ​ students​ ​ from​ ​ French​ ​ universities.
+            I developed the web-based tournament subscription & management application (managing
+            2600​ ​ subscriptions)
       </div>
       <div>
         <b>Sports</b>
       </div>
-      <div>Ski (licencié FFS, compétition en 2017-2018) - Roller - Tennis - Kitesurf</div>
+      <div>Ski - Roller - Tennis - Kitesurf</div>
 
       <div>
-        <b>Soutien scolaire</b>
+        <b>Tutoring</b>
       </div>
-      <div>À 2 élèves de terminale S préparent le baccalauréat scientifique.</div>
+      <div>PédagogiePlus, Gif-sur-Yvette - Tutoring high school students in Mathematics, Physics and
+Chemistry. Evaluating learners’ weaknesses and preparing suitable material adapted to their
+needs.​ ​ (Sept.-​ ​ July​ ​ 2010)</div>
     </div>
   </div>
 }
@@ -236,6 +258,7 @@ const Credits = () => {
           <li>Sergey Kashin</li>
           <li>Dinosoft Labs</li>
           <li>Mulham</li>
+          <li>Mister Pixel</li>
         </ul>
       </div>
     </div>

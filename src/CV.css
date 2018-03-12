@@ -103,14 +103,60 @@
 }
 
 .xpItem {
-    border: solid;
-    border-color: var(--background-color);
-    border-radius: 3mm;
     padding: 3mm;
 }
 
 .xpItem:not(:last-child) {
     margin-bottom: 4mm;
+}
+
+.xpItem {
+    padding: 0;
+}
+
+.xpSection {
+    border-left: solid;
+    border-right: solid;
+    border-color: var(--background-color);
+    padding: 3mm;
+}
+
+.xpSection:last-of-type {
+    border-bottom: solid;
+    border-color: var(--background-color);
+    border-bottom-left-radius: 3mm;
+    border-bottom-right-radius: 3mm;
+}
+
+.xpTitle {
+    border-top-left-radius: 3mm;
+    border-top-right-radius: 3mm;
+    background-color: var(--background-color);
+    color: white;
+}
+
+
+.xpTechnologies svg:not(:hover) * {
+    fill: var(--background-color);
+    stroke: var(--background-color);
+}
+
+.xpTechnologies svg:hover * {
+    fill-opacity: 1;
+}
+
+.xpTechnologies {
+    padding-left: 1cm;
+}
+
+.xpTechnologies .techLogos svg {
+    /* border-bottom: solid; */
+    /* border-top: solid; */
+    /* border-radius: 2mm; */
+    border-color: var(--background-color);
+    fill-opacity: 0.4;
+    width: 30m;
+    /* height: 10mm; */
 }
 
 .formation .a320 {
@@ -202,7 +248,7 @@ body {
   font-variant: small-caps;
 }
 
-.logoleft svg {
+.roundLogo svg {
     fill: var(--background-color);
     stroke: white;
     stroke-width: 2mm;
@@ -221,7 +267,19 @@ body {
     font-weight: bold;
 }
 
+.roundLogo {
+    display: grid;
+    position: absolute;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
 
+.techToolsLogo {
+    left: 3mm;
+    width: 1cm;
+    height: 1cm;
+}
 
 .Gauge {
     /* margin: 0 auto; */

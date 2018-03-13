@@ -8,9 +8,10 @@ import sports from './sports.svg'
 import cc from './cc.svg'
 import cloud from './cloud.svg'
 import uk from './uk.svg'
+import teamLogo from './team.svg'
 import Gauge from 'a320-ecam-gauges'
 import _ from 'lodash';
-import { ReactLogo, NodejsLogo } from './techLogos'
+import { techLogos } from './svgLogos'
 
 const A = (props) => {
   return <span className="a320" style={props.style}>{props.txt}</span>;
@@ -25,7 +26,8 @@ const RoundLogo = ({ img, size, className }) => {
     <div>
       <svg viewBox="0 0 200 200">
         <defs>
-          <filter id="f1" x="-20%" y="-20%" width="200%" height="200%">            <feOffset result="offOut" in="SourceAlpha" dx="2" dy="2" />
+          <filter id="f1" x="-20%" y="-20%" width="200%" height="200%">
+            <feOffset result="offOut" in="SourceAlpha" dx="2" dy="2" />
             <feGaussianBlur result="blurOut" in="offOut" stdDeviation="1" />
             <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
           </filter>
@@ -64,40 +66,40 @@ const Aero = () => {
     <div className="titreSection">Aeronautics</div>
     <div class="gridcontainer content">
       <div>
-        <b>ULM</b>
+        <b>Ultralight</b>
       </div>
-      <div>Laché en ULM 3 axes - 15 heures de vol - Licence théorique d’instructeur ULM</div>
+      <div>Solo Ultralight flights - 15 hours - Theoritical Instructor License </div>
       <div>
-        <b>Planeur</b>
+        <b>Glider</b>
       </div>
-      <div>7 heures de vol</div>
+      <div>Duo flights - 7 flight hours</div>
     </div>
   </div>
 }
 
-const techLogos = {
-  node: <NodejsLogo />,
-  react: <ReactLogo />
-}
-
-const XpItem = ({ yearStart, yearEnd, title, company, location, items, technologies }) => {
+const XpItem = ({ yearStart, yearEnd, title, company, location, items, technologies, team }) => {
   return <div className="xpItem">
     <div className="xpSection xpTitle">
       <b>
         <span class="a320">{yearStart} {yearEnd ? "> " : ""}{yearEnd}</span> - {title} - {company}, {location}</b>
     </div>
+    {!_.isEmpty(team) ?
+      <div className="xpSection xpContent xpTeam">
+        <RoundLogo img={teamLogo} size={"60%"} className="techToolsLogo" />
+        <p style={{ fontWeight: "bold" }}>{team}</p>
+      </div>
+      : ""}
     {!_.isEmpty(items) ?
-      <div className="xpSection xpContent">
-        <ul>
-          {_.map(items, i => <li>{i}</li>)}
-        </ul>
+      <div className="xpSection xpContent xpDetails">
+        {_.map(items, i => <p>{i}</p>)}
+        {/* {items} */}
       </div>
       : ""}
     {!_.isEmpty(technologies) ?
       <div className="xpSection xpTechnologies">
         <RoundLogo img={tools} size={"60%"} className="techToolsLogo" />
         <div className="techLogos">
-          {_.map(technologies, t => techLogos[t])}
+          {_.map(technologies, t => <div className="logo">{techLogos[t]}</div>)}
         </div>
       </div>
       : ""}
@@ -111,22 +113,57 @@ const ProfesionnalExperience = () => {
     <div className="titreSection">Software Engineering</div>
     <div className="content">
       <XpItem {...{
-        yearStart: 2014,
-        yearEnd: 2018,
+        yearStart: "2017",
         title: "Software Engineer",
+        team: "Coverage Team",
         company: "GoEuro GmbH",
         location: "Berlin",
         items: [
-          "Travel search engine for bus, flight, and train tickets.",
-          "10 million unique visitors per month.",
-          "International dev team.",
-          "Développement et maintenance d'applications distribuées.",
-          "Traitement de données du transport aérien, ferroviaire et routier.",
-          "3 ans d’expérience comme interviewer technique en entretiens d’embauche."
+          "Fast-paced, small interdisciplinary team of 5 people",
+          "Developed a Node.js set of microservices to maintain inventory and bookings of small bus companies",
+          "PDF ticket emission, with various PNRs, QR codes or barcodes",
+          "Integrated more than 15 bus companies in 2 months",
         ],
         technologies: [
           "node",
           "react",
+          "js",
+          "docker",
+          "k8s",
+        ]
+      }} />
+      <XpItem {...{
+        yearStart: 2016,
+        yearEnd: 2017,
+        title: "Software Engineer",
+        team: "Search Core",
+        company: "GoEuro GmbH",
+        location: "Berlin",
+        items: [
+          "Built a new version of the search engine.",
+          "Introduced first Docker services at GoEuro",
+        ],
+        technologies: [
+          "node",
+          "docker",
+          // "react",
+        ]
+      }} />
+      <XpItem {...{
+        yearStart: 2015,
+        yearEnd: 2016,
+        title: "Software Engineer",
+        team: "Search Engine Optimization",
+        company: "GoEuro GmbH",
+        location: "Berlin",
+        items: [
+          "Built a SEO platform for the website's landing pages",
+          "Server-side HTML generation",
+          "~10 million landing pages with rich data from user searches (prices, itineraries)",
+          "Crawled at 50 QPS by search engines - 100 ms latency",
+        ],
+        technologies: [
+          "java",
         ]
       }} />
       <XpItem {...{

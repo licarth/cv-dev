@@ -121,6 +121,14 @@
     padding: 3mm;
 }
 
+.xpContent {
+    padding-left: 1cm;
+}
+
+.xpDetails p {
+    margin: 0;
+}
+
 .xpSection:last-of-type {
     border-bottom: solid;
     border-color: var(--background-color);
@@ -135,28 +143,53 @@
     color: white;
 }
 
-
-.xpTechnologies svg:not(:hover) * {
-    fill: var(--background-color);
-    stroke: var(--background-color);
+.xpTeam {
+    padding-bottom: 1mm;
 }
 
-.xpTechnologies svg:hover * {
-    fill-opacity: 1;
+.xpTeam p {
+    margin-top: 0.5em;
+}
+
+.techLogos svg:not(:hover) {
+    filter:  url(#monochrome);
+}
+
+.techLogos img:not(:hover) {
+    filter:  url(#monochrome);
 }
 
 .xpTechnologies {
     padding-left: 1cm;
 }
 
-.xpTechnologies .techLogos svg {
-    /* border-bottom: solid; */
-    /* border-top: solid; */
-    /* border-radius: 2mm; */
-    border-color: var(--background-color);
-    fill-opacity: 0.4;
-    width: 30m;
-    /* height: 10mm; */
+.techLogos .logo {
+    display:table-cell; 
+    vertical-align:middle; 
+    text-align:center;
+    /* position: relative; */
+    height: 15mm;
+    padding-right: 3mm
+}
+
+.techLogos {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.techLogos svg {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 100%;
+}
+
+.techLogos img {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 100%;
 }
 
 .formation .a320 {
@@ -308,6 +341,6 @@ body {
     flex-direction: column;
 }
 
-.footerRight a{
+.footerRight a {
     color: white;
 }

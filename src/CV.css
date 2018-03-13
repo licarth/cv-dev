@@ -151,13 +151,13 @@
     margin-top: 0.5em;
 }
 
-.techLogos svg:not(:hover) {
+/* .techLogos svg:not(:hover) {
     filter:  url(#monochrome);
 }
 
 .techLogos img:not(:hover) {
     filter:  url(#monochrome);
-}
+} */
 
 .xpTechnologies {
     padding-left: 1cm;
@@ -168,7 +168,7 @@
     vertical-align:middle; 
     text-align:center;
     /* position: relative; */
-    height: 15mm;
+    height: 10mm;
     padding-right: 3mm
 }
 

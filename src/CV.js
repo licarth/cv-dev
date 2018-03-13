@@ -126,9 +126,9 @@ const ProfesionnalExperience = () => {
         ],
         technologies: [
           "node",
-          "react",
-          "js",
           "docker",
+          "js",
+          "react",
           "k8s",
         ]
       }} />
@@ -146,7 +146,7 @@ const ProfesionnalExperience = () => {
         technologies: [
           "node",
           "docker",
-          // "react",
+          "js",
         ]
       }} />
       <XpItem {...{
@@ -161,6 +161,21 @@ const ProfesionnalExperience = () => {
           "Server-side HTML generation",
           "~10 million landing pages with rich data from user searches (prices, itineraries)",
           "Crawled at 50 QPS by search engines - 100 ms latency",
+        ],
+        technologies: [
+          "java",
+        ]
+      }} />
+      <XpItem {...{
+        yearStart: 2014,
+        yearEnd: 2015,
+        title: "Software Engineer",
+        team: "Provider Integration Team",
+        company: "GoEuro GmbH",
+        location: "Berlin",
+        items: [
+          "Implementing connectors to 3rd party APIs (train and bus providers)",
+          "Screen scraping",
         ],
         technologies: [
           "java",

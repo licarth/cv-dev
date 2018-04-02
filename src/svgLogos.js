@@ -1,6 +1,7 @@
 import React from 'react';
 import javaLogo from './java.png'
 import k8sLogo from './kubernetes.svg'
+import gcp from './gcp.png'
 
 const Nodejs = () => {
     return <svg
@@ -167,6 +168,12 @@ const K8s = () => {
      src={k8sLogo}></img>
 }
 
+const Gcp = () => {
+    return <img 
+    style={{height: "120%"}}
+     src={gcp}></img>
+}
+
 
 export const techLogos = {
     node: <Nodejs />,
@@ -175,4 +182,5 @@ export const techLogos = {
     js: <Javascript />,
     java: <Java />,
     k8s: <K8s />,
+    gcp: <Gcp />,
 }

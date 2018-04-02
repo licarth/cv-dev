@@ -6,20 +6,45 @@
         grid-area: topright;
         z-index: 2;
         color: white;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 1cm;
+        margin-left: 20mm;
+        /* margin-right: auto; */
+        margin-top: 12mm;
         margin-bottom: 1cm;
     }
 
     .content-grid {
-        grid-template-columns: 2cm 1fr;
+        grid-template-columns: 2cm 1fr auto;
         grid-template-rows: auto auto auto 2cm;
+    }
+
+    .titre {
+        font-size: 1em;
+        margin: 5mm;
+        /* background-color: var(--background-color); */
+        /* padding-bottom: 30; */
+    }
+
+    .titre p {
+        padding: 0;
+        margin: 0;
+        /* line-height: 20%; */
     }
 
     .topright {
         background-color: var(--background-color);
     }
+
+    .photo {
+        position: relative;
+        grid-area: topleft;
+        z-index: 100;
+        width: 20mm;
+        top: 10mm;
+        left: 10mm;
+        border: solid var(--background-color);
+        border-radius: 5mm;
+    }
+
     
 }
 @media (min-width: 15cm) {
@@ -29,7 +54,7 @@
     }
     
     .content-grid {
-        grid-template-columns: var(--leftcol-width) 1fr;
+        grid-template-columns: var(--leftcol-width) 1fr 50mm;
         grid-template-rows: 1cm auto auto 2cm;
     }
     .nom {
@@ -40,6 +65,25 @@
         padding-right: 0.5cm;
         padding-top: 0.5cm;
     }
+    
+    .photo {
+        /* position: relative; */
+        /* align-content: center; */
+        margin: auto;
+        grid-area: photo;
+        z-index: 100;
+        width: 30mm;
+        /* margin: 10mm; */
+        /* right: 10mm; */
+        /* top: 0mm; */
+        border: solid var(--background-color);
+        border-radius: 5mm;
+    }
+
+    .titre {
+        font-size: 1.2em;
+        margin: 1.5cm;
+    }
 
     /* CSS that should be displayed if width is equal to or less than 800px goes here */
   }
@@ -48,21 +92,28 @@
         display: grid;
         min-height: 100%;
         grid-template-areas: 
-        "topleft topright"
-        "left title"
-        "bottomleft center"
-        "footer footer";
+        "topleft topright topright"
+        "left title photo"
+        "bottomleft center center"
+        "footer footer footer";
+    }
+
+    .profilePic {
+        width: 80%;
+        margin: auto;
+        border-radius: 10px;
+        overflow: hidden;
+        display: inline-block;
+        z-index: 12;
+        grid-area: left;
+        /* grid-row-start: 1; */
+        /* grid-row-end: 1; */
     }
 
 :root {
     --leftcol-width: 5cm;
     --background-color: darkslateblue;
   }
-
-.titre {
-    font-size: 1.2em;
-    margin: 1.5cm;
-}
 
 .CV {
     min-height: 100%;
@@ -73,9 +124,8 @@
     margin-bottom: 10mm;
 }
 
-.footer{
+.footer {
     grid-area: footer;
-    /* height: 1cm; */
     background-color: var(--background-color);
 }
 

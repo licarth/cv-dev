@@ -12,6 +12,8 @@ import teamLogo from './team.svg'
 import Gauge from 'a320-ecam-gauges'
 import _ from 'lodash';
 import { techLogos } from './svgLogos'
+import profilePic from './profilePic.png'
+import photoIdentite from './photo_identite.jpg';
 
 const A = (props) => {
   return <span className="a320" style={props.style}>{props.txt}</span>;
@@ -104,7 +106,6 @@ const XpItem = ({ yearStart, yearEnd, title, company, location, items, technolog
       </div>
       : ""}
   </div >
-
 }
 
 const ProfesionnalExperience = () => {
@@ -115,7 +116,7 @@ const ProfesionnalExperience = () => {
       <XpItem {...{
         yearStart: "2017",
         title: "Software Engineer",
-        team: "Coverage Team",
+        team: "Coverage Team - Fast Integrations Project",
         company: "GoEuro GmbH",
         location: "Berlin",
         items: [
@@ -128,8 +129,9 @@ const ProfesionnalExperience = () => {
           "node",
           "docker",
           "js",
-          "react",
+          // "react",
           "k8s",
+          "gcp",
         ]
       }} />
       <XpItem {...{
@@ -147,6 +149,7 @@ const ProfesionnalExperience = () => {
           "node",
           "docker",
           "js",
+          "gcp",
         ]
       }} />
       <XpItem {...{
@@ -164,6 +167,7 @@ const ProfesionnalExperience = () => {
         ],
         technologies: [
           "java",
+          "gcp",
         ]
       }} />
       <XpItem {...{
@@ -179,6 +183,7 @@ const ProfesionnalExperience = () => {
         ],
         technologies: [
           "java",
+          "gcp",
         ]
       }} />
       <XpItem {...{
@@ -321,6 +326,19 @@ const CV = () => {
   return (
     <div className="CV">
       <div className="content-grid">
+        {/* <div className="profilePic"
+          style={{
+            // borderRadius: "6px",
+
+          }}
+        > */}
+        {/* <img src={profilePic}
+          className="profilePic"
+          style={{
+            width: "100%"
+          }} /> */}
+        {/* </div> */}
+        <img className="photo" src={photoIdentite} />
         <div className="nom">
           <b style={{ fontSize: `1.5em`, fontVariant: 'small-caps' }}>Thomas Carli</b>
           <br></br>

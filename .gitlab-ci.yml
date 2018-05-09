@@ -2,4 +2,5 @@ npm:
   image: node
 
   script:
+    - echo "installing"
     - npm install

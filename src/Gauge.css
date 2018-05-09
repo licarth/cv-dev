@@ -1,0 +1,20 @@
+/* @keyframes kk {
+    from: 10 */
+/* } */
+
+.personalprojects {
+    /* transition:left .25s ease-out; */
+}
+
+.Gauge polyline {
+    border: solid greenyellow;
+    transition:transform 1ss ease;
+}
+
+.Gauge {
+    margin: 0 auto;
+    background-color: black !important;
+    border-radius: 10px;
+    width: 3cm !important;
+    height: 3cm !important;
+}

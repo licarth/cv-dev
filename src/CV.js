@@ -14,64 +14,23 @@ import _ from 'lodash';
 import { techLogos } from './svgLogos'
 import profilePic from './profilePic.png'
 import photoIdentite from './photo_identite.jpg';
+import PersonalProjects from './PersonalProjects'
+import { RoundLogo, LogoLeft } from './LogoLeft'
 
 const A = (props) => {
   return <span className="a320" style={props.style}>{props.txt}</span>;
 }
-
-const LogoLeft = ({ img, size }) => {
-  return <RoundLogo img={img} size={size} className={"logoleft"} />
-}
-
-const RoundLogo = ({ img, size, className }) => {
-  return <div className={className + " roundLogo"}>
-    <div>
-      <svg viewBox="0 0 200 200">
-        <defs>
-          <filter id="f1" x="-20%" y="-20%" width="200%" height="200%">
-            <feOffset result="offOut" in="SourceAlpha" dx="2" dy="2" />
-            <feGaussianBlur result="blurOut" in="offOut" stdDeviation="1" />
-            <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
-          </filter>
-        </defs>
-        <circle cx="100" cy="100" r="100"
-          filter="url(#f1)"
-        />
-      </svg>
-    </div>
-    <div
-      className='logo'
-      style={{
-        width: '100%',
-        height: '100%',
-        display: 'grid',
-        position: 'absolute'
-      }}>
-      <img src={img}
-        style={{
-          margin: 'auto',
-          width: size,
-        }}
-      />
-    </div>
-  </div>
-}
-
-LogoLeft.defaultProps = {
-  size: '70%',
-};
-
 
 const Aero = () => {
   return <div id="aero" class="section aero">
     <LogoLeft img={planeur} />
     <div className="titreSection">Aeronautics</div>
     <div class="gridcontainer content">
-      <div>
+      <div className="title">
         <b>Ultralight</b>
       </div>
       <div>Solo Ultralight flights - 15 hours - Theoritical Instructor License </div>
-      <div>
+      <div className="title">
         <b>Glider</b>
       </div>
       <div>Duo flights - 7 flight hours</div>
@@ -207,7 +166,7 @@ const ProfesionnalExperience = () => {
 }
 
 const EducationItem = ({ yearEnd, desc }) => {
-  return [<div>
+  return [<div className="title">
     <b>
       <span class="a320">{yearEnd}</span>
     </b>
@@ -270,11 +229,11 @@ const Other = () => {
   return <div id="others" class="section others">
     <LogoLeft img={sports} size='70%' />
     <div className="titreSection">Other Activities</div>
-    <div class="gridcontainer content" style={{ gridTemplateColumns: `3cm 1fr` }}>
-      <div>
+    <div class="gridcontainer content" >
+      <div className="title">
         <b>Societies</b>
       </div>
-      <div>
+      <div className="title">
         Supélec Sports assiciation - Vice-President - 2012
         <br></br>
         Vice president of the “​ Bureau des Sports​ ” at Supélec, a committee of 12 students which is in
@@ -284,12 +243,12 @@ const Other = () => {
             I developed the web-based tournament subscription & management application (managing
             2600​ ​ subscriptions)
       </div>
-      <div>
+      <div className="title">
         <b>Sports</b>
       </div>
       <div>Ski - Roller - Tennis - Kitesurf</div>
 
-      <div>
+      <div className="title">
         <b>Tutoring</b>
       </div>
       <div>PédagogiePlus, Gif-sur-Yvette - Tutoring high school students in Mathematics, Physics and
@@ -303,8 +262,8 @@ const Credits = () => {
   return <div id="credits" class="section credits">
     <LogoLeft img={cc} size='70%' />
     <div className="titreSection">Credits</div>
-    <div class="gridcontainer content" style={{ gridTemplateColumns: `3cm 1fr` }}>
-      <div>
+    <div class="gridcontainer content" >
+      <div className="title">
         <b>Logos</b>
       </div>
       <div>
@@ -316,6 +275,7 @@ const Credits = () => {
           <li>Dinosoft Labs</li>
           <li>Mulham</li>
           <li>Mister Pixel</li>
+          <li>Three Six Five</li>
         </ul>
       </div>
     </div>
@@ -366,6 +326,7 @@ const CV = () => {
           <ProfesionnalExperience />
           <Education />
           <Languages />
+          <PersonalProjects />
           <Other />
           <Aero />
           <Credits />

@@ -264,10 +264,26 @@ ul {
     grid-row-gap: 1mm;
 }
 
-.content {
-    margin-left: 0.5cm;
-    margin-right: 4mm;
+@media (max-width: 15cm) {
+    .content {
+        margin-left: 0.5cm;
+        margin-right: 4mm;
+        /* grid-template-columns: 3cm 1fr; */
+        grid-template-columns: 1fr;
+    }
 }
+
+@media (min-width: 15cm) {
+    .content {
+        margin-left: 0.5cm;
+        margin-right: 4mm;
+        grid-template-columns: auto 1fr;
+    }
+    .content .title {
+        margin-right: 5mm;
+    }
+}
+
 
 h1 {
     font-size: 1em;
@@ -362,14 +378,6 @@ body {
     left: 3mm;
     width: 1cm;
     height: 1cm;
-}
-
-.Gauge {
-    /* margin: 0 auto; */
-    background-color: black !important;
-    border-radius: 10px;
-    width: 1.7cm !important;
-    height: 1.7cm !important;
 }
 
 .section {

@@ -73,6 +73,29 @@ const ProfesionnalExperience = () => {
     <div className="titreSection">Software Engineering</div>
     <div className="content">
       <XpItem {...{
+        yearStart: "2018",
+        title: "2 months - Freelance Software Engineer",
+        team: "DevOps - 2 months",
+        company: "Opla.ai",
+        location: "Remote",
+        items: [
+          "Designed and implemented their CI/CD pipeline.",
+          "Moved to a single-repo approach.",
+          "Drove the adoption of Kubernetes.",
+          "e2e testing with Cypress.",
+        ],
+        technologies: [
+          "node",
+          "docker",
+          "js",
+          "cypress",
+          // "react",
+          "k8s",
+          "gcp",
+          "circleci",
+        ]
+      }} />
+      <XpItem {...{
         yearStart: "2017",
         title: "Software Engineer",
         team: "Coverage Team - Fast Integrations Project",
@@ -326,7 +349,7 @@ const CV = () => {
           <ProfesionnalExperience />
           <Education />
           <Languages />
-          <PersonalProjects />
+          {/* <PersonalProjects /> */}
           <Other />
           <Aero />
           <Credits />

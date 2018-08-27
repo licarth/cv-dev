@@ -2,6 +2,8 @@ import React from 'react';
 import javaLogo from './java.png'
 import k8sLogo from './kubernetes.svg'
 import gcp from './gcp.png'
+import cypress from './cypress.png'
+import circleci from './circleci.png'
 
 const Nodejs = () => {
     return <svg
@@ -174,6 +176,18 @@ const Gcp = () => {
      src={gcp}></img>
 }
 
+const Cypress = () => {
+    return <img 
+    style={{height: "120%"}}
+     src={cypress}></img>
+}
+
+const CircleCI = () => {
+    return <img 
+    style={{height: "120%"}}
+     src={circleci}></img>
+}
+
 
 export const techLogos = {
     node: <Nodejs />,
@@ -183,4 +197,6 @@ export const techLogos = {
     java: <Java />,
     k8s: <K8s />,
     gcp: <Gcp />,
+    cypress: <Cypress />,
+    circleci: <CircleCI />,
 }

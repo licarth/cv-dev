@@ -4,7 +4,7 @@ jobs:
     docker:
       - image: circleci/node:8
     steps:
-      - checkout 
+      - checkout
       - restore_cache:
           key: dependency-cache-{{ checksum "package.json" }}
       - run:
@@ -17,6 +17,26 @@ jobs:
       - run:
           name: build
           command: npm run build
+      - persist_to_workspace:
+          root: ./
+          paths:
+            - build/*
+            - node_modules/**
+  deploy:
+    docker:
+      - image: circleci/node:8
+    steps:
+      - checkout
+      - add_ssh_keys:
+          fingerprints:
+            - "ad:2a:15:0d:e9:94:2b:04:6a:ba:f8:e4:e5:53:f0:73"
+      - attach_workspace:
+          at: ./
+      - run:
+          name: git login
+          command: |
+            git config --global user.email "thomascarli@gmail.com"
+            git config --global user.name "CI"
       - run:
           name: deploy gh-pages
           command: npm run deploy
@@ -33,4 +53,3 @@ workflows:
             branches:
               only: 
                 - master
-                - circleci

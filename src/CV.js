@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './CV.css';
-import airbusImage from './pfd.png'
 import planeur from './planeur.svg'
 import tools from './tools.svg'
 import education from './education.svg'
@@ -9,12 +8,9 @@ import cc from './cc.svg'
 import cloud from './cloud.svg'
 import uk from './uk.svg'
 import teamLogo from './team.svg'
-import Gauge from 'a320-ecam-gauges'
 import _ from 'lodash';
 import { techLogos } from './svgLogos'
-import profilePic from './profilePic.png'
 import photoIdentite from './photo_identite.jpg';
-import PersonalProjects from './PersonalProjects'
 import { RoundLogo, LogoLeft } from './LogoLeft'
 
 const A = (props) => {
@@ -321,7 +317,7 @@ const CV = () => {
             width: "100%"
           }} /> */}
         {/* </div> */}
-        <img className="photo" src={photoIdentite} />
+        <img className="photo" src={photoIdentite} alt="id" />
         <div className="nom">
           <b style={{ fontSize: `1.5em`, fontVariant: 'small-caps' }}>Thomas Carli</b>
           <br></br>

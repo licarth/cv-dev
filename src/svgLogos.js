@@ -161,31 +161,35 @@ const Javascript = () => {
 }
 
 const Java = () => {
-    return <img src={javaLogo}></img>
+    return <img src={javaLogo} alt="java"></img>
 }
 
 const K8s = () => {
     return <img 
+    alt="kubernetes"
     style={{height: "50%"}}
      src={k8sLogo}></img>
 }
 
 const Gcp = () => {
     return <img 
+    alt="google cloud platform"
     style={{height: "120%"}}
-     src={gcp}></img>
+    src={gcp}></img>
 }
 
 const Cypress = () => {
     return <img 
+    alt="cypress"
     style={{height: "120%"}}
-     src={cypress}></img>
+    src={cypress}></img>
 }
 
 const CircleCI = () => {
     return <img 
+    alt="circleci"
     style={{height: "120%"}}
-     src={circleci}></img>
+    src={circleci}></img>
 }
 
 

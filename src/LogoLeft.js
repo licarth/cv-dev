@@ -25,6 +25,7 @@ export const RoundLogo = ({ img, size, className }) => {
                 position: 'absolute'
             }}>
             <img src={img}
+                alt="logo"
                 style={{
                     margin: 'auto',
                     width: size,

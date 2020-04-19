@@ -1,8 +1,8 @@
 {
   "main.css": "static/css/main.12a2ffd8.css",
   "main.css.map": "static/css/main.12a2ffd8.css.map",
-  "main.js": "static/js/main.1d52e84b.js",
-  "main.js.map": "static/js/main.1d52e84b.js.map",
+  "main.js": "static/js/main.b6b3427f.js",
+  "main.js.map": "static/js/main.b6b3427f.js.map",
   "static/media/Dosis-Bold.otf": "static/media/Dosis-Bold.3fdafce4.otf",
   "static/media/Dosis-Regular.otf": "static/media/Dosis-Regular.62edbe8d.otf",
   "static/media/a320pfd.woff": "static/media/a320pfd.ffce2dfb.woff",
@@ -12,6 +12,7 @@
   "static/media/cypress.png": "static/media/cypress.43c76b91.png",
   "static/media/education.svg": "static/media/education.a558bb19.svg",
   "static/media/gcp.png": "static/media/gcp.dfc57dea.png",
+  "static/media/graphql.png": "static/media/graphql.be219574.png",
   "static/media/java.png": "static/media/java.ac8121d8.png",
   "static/media/kubernetes.svg": "static/media/kubernetes.2c4605c1.svg",
   "static/media/planeur.svg": "static/media/planeur.dcff34a7.svg",
